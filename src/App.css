@@ -1,9 +1,87 @@
 /* Add styling for your page here */
 
 .App {
-
+  display: flex;
+  flex-direction: column;
+  padding: 6rem;
 }
 
-.BakeryItem {
-  
+h1 {
+  font-style: italic;
+  font-size: 50px;
+  color: rgb(187, 166, 187);
+}
+
+.Cart {
+  position: sticky;
+  top: 140px;
+  /* margin-top: 0.3rem;
+  margin-left: 1rem; */
+  height: auto;
+  width: 30rem;
+  height: 60vh;
+  color: rgb(90, 90, 0);
+  background-color: lavender;
+  padding: 30px;
+  padding-top: 10px;
+  margin: 10px;
+  border-radius: 20px;
+}
+
+.Body {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  background-color: thistle;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  padding: 10px;
+  margin: 6px;
+  width: 170px !important;
+  height: 100px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 25px;
+}
+
+.Header {
+  position: sticky;
+  top: 0px;
+  padding-top: 1rem;
+  /* padding-left: 12rem; */
+  text-align: center;
+  background-color: white;
+}
+
+.Item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: lavenderblush;
+  margin: 10px;
+  padding: 20px;
+  padding-top: 10px;
+  /* padding-inline: 30px; */
+  border-radius: 20px;
+}
+
+.Deets {
+  flex: 2;
+  color: rgb(90, 90, 0);
+}
+
+.Total {
+  font-size: 22px;
+}
+
+.CartHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+  margin: 0;
 }

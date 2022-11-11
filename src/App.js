@@ -13,21 +13,21 @@ function App() {
   // TODO: use useState to create a state variable to hold the state of the cart
   /* add your cart state code here */
 
-  const initialState = []
+  const initialState = [];
 
-  const [variantInfo, setVariantInfo] = useState(initialState)
-  const [total, setTotal] = useState(0.00)
+  const [variantInfo, setVariantInfo] = useState(initialState);
+  const [total, setTotal] = useState(0.0);
 
   function handleSize(item) {
-    setVariantInfo(variantInfo => [...variantInfo, item]);
+    setVariantInfo((variantInfo) => [...variantInfo, item]);
   }
 
   function handleTotal(item) {
-    setTotal(Math.round((total+item + Number.EPSILON) * 100) / 100);
+    setTotal(Math.round((total + item + Number.EPSILON) * 100) / 100);
   }
-	
-  function myFunction(event, name, price){
-    console.log(variantInfo)
+
+  function myFunction(event, name, price) {
+    console.log(variantInfo);
     handleSize(name);
     handleTotal(price);
   }
@@ -35,7 +35,7 @@ function App() {
   function MyButton({ item, onClick }) {
     // console.log(item.price)
     return (
-      <button onClick={event => myFunction(event, item.name, item.price)}>
+      <button onClick={(event) => myFunction(event, item.name, item.price)}>
         <p>Add to Cart</p>
       </button>
     );
@@ -43,43 +43,55 @@ function App() {
 
   let content;
   if (variantInfo?.length > 0) {
-    let visited = []
-    let movies = 0
-    content = variantInfo.map(item => {
-          if (!visited.includes(item)){
-            movies = variantInfo.filter(item1 => item1 === item)
-            visited = [...visited, item]
-            return <p>{item} x{movies.length}</p>
-          }
-
-    })
+    let visited = [];
+    let movies = 0;
+    content = variantInfo.map((item) => {
+      if (!visited.includes(item)) {
+        movies = variantInfo.filter((item1) => item1 === item);
+        visited = [...visited, item];
+        return (
+          <p>
+            {item} x{movies.length}
+          </p>
+        );
+      }
+    });
   } else {
-    content = <p>Nothing in your cart... Yet!</p>
+    content = <p>Nothing in your cart... Yet!</p>;
   }
 
-  console.log(content)
-
+  console.log(content);
 
   return (
     <div className="App">
-      <h1>The Bakery of Grinds and Sighs</h1> {/* TODO: personalize your bakery (if you want) */}
-
-      {bakeryData.map((item, index) => ( // TODO: map bakeryData to BakeryItem components
-        <div>
-          <BakeryItem item={item}></BakeryItem>
-          <MyButton item={item} onClick={myFunction}/>
+      <div className="Header">
+        <h1>The Bakery of Grinds and Sighs</h1>{" "}
+      </div>
+      <div className="Body">
+        {/* TODO: personalize your bakery (if you want) */}
+        <div className="Menu">
+          {bakeryData.map(
+            (
+              item,
+              index // TODO: map bakeryData to BakeryItem components
+            ) => (
+              <div className="Item">
+                <div className="Deets">
+                  <BakeryItem item={item}></BakeryItem>
+                </div>
+                <MyButton item={item} onClick={myFunction} />
+              </div>
+            )
+          )}
         </div>
-      ))}
-
-      <div>
-        <h2>Cart</h2>
-        <div>
-          <p>${total}</p>
+        <div className="Cart">
+          <div className="CartHeader">
+            <h2>Cart</h2> <p className="Total">Total: ${total}</p>
+          </div>
           <div>
-          {content}
+            <div>{content}</div>
           </div>
         </div>
-            
       </div>
     </div>
   );
