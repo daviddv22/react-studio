@@ -33,7 +33,6 @@ function App() {
   }
 
   function MyButton({ item, onClick }) {
-    // console.log(item.price)
     return (
       <button onClick={(event) => myFunction(event, item.name, item.price)}>
         <p>Add to Cart</p>
@@ -65,10 +64,9 @@ function App() {
   return (
     <div className="App">
       <div className="Header">
-        <h1>The Bakery of Grinds and Sighs</h1>{" "}
+        <h1>The Walking Bakery</h1>{" "}
       </div>
       <div className="Body">
-        {/* TODO: personalize your bakery (if you want) */}
         <div className="Menu">
           {bakeryData.map(
             (
